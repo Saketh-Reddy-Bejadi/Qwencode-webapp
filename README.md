@@ -26,7 +26,7 @@
 ## 📦 Setup
 
 ```bash
-git clone https://github.com/Saketh-Reddy-Bejadi/codemate-qwen.git
+git clone https://github.com/Saketh-Reddy-Bejadi/Qwencode-webapp.git
 cd qwen-lite-coder-webapp
 npm install
 npm run dev
