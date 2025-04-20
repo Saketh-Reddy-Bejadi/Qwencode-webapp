@@ -4,7 +4,7 @@ import * as webllm from "@mlc-ai/web-llm";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import {github } from "react-syntax-highlighter/dist/esm/styles/hljs/github";
+import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 const Hero = () => {
   const [input, setInput] = useState("");
@@ -23,7 +23,20 @@ const Hero = () => {
       })
       .then((engine) => {
         setEngine(engine);
-        alert("you are good to use the model!");
+        const popup = document.createElement("div");
+        popup.textContent = "you are good to use the model!";
+        popup.style.position = "fixed";
+        popup.style.top = "20px";
+        popup.style.right = "20px";
+        popup.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
+        popup.style.color = "white";
+        popup.style.padding = "10px 20px";
+        popup.style.borderRadius = "8px";
+        popup.style.zIndex = "1000";
+        document.body.appendChild(popup);
+        setTimeout(() => {
+          document.body.removeChild(popup);
+        }, 2000);
       });
   }, []);
 
@@ -80,7 +93,7 @@ const Hero = () => {
                   return !inline && match ? (
                     <div className="relative group">
                       <SyntaxHighlighter
-                        style={github}
+                         style={oneDark}
                         language={match[1]}
                         PreTag="div"
                         className="rounded-lg"
