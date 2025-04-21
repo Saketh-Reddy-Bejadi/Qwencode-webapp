@@ -13,7 +13,7 @@ const Hero = () => {
 
   const [engine, setEngine] = useState(null);
   useEffect(() => {
-    const model = "gemma-2b-it-q4f16_1-MLC";
+    const model = "Qwen2.5-Coder-0.5B-Instruct-q4f32_1-MLC";
 
     const popup = document.createElement("div");
     popup.style.position = "fixed";
