@@ -40,7 +40,7 @@ Runs fully in-browser with **WebGPU** — no API keys, no servers, no data sent 
 
 ```bash
 git clone https://github.com/Saketh-Reddy-Bejadi/gemma_web_llm.git
-cd gemmawebllm
+cd gemma_web_llm
 npm install
 npm run dev
 ```
