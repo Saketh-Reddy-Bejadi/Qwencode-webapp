@@ -11,10 +11,31 @@ const Hero = () => {
   const [messages, setMessages] = useState([]);
   const [copied, setCopied] = useState(false);
 
-
   const [engine, setEngine] = useState(null);
   useEffect(() => {
     const model = "gemma-2b-it-q4f16_1-MLC";
+
+    const popup = document.createElement("div");
+    popup.style.position = "fixed";
+    popup.style.top = "20px";
+    popup.style.right = "20px";
+    popup.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
+    popup.style.color = "white";
+    popup.style.padding = "10px 20px";
+    popup.style.borderRadius = "8px";
+    popup.style.zIndex = "1000";
+
+    let dots = 0;
+    const maxDots = 3;
+    popup.textContent = "Loading model";
+    const intervalId = setInterval(() => {
+      dots = (dots % maxDots) + 1;
+      popup.textContent = "Loading model" + ".".repeat(dots);
+    }, 500);
+
+    popup.style.transition = "all 0.3s ease-in-out";
+    document.body.appendChild(popup);
+
     webllm
       .CreateMLCEngine(model, {
         initProgressCallback: (initProgress) => {
@@ -22,25 +43,17 @@ const Hero = () => {
         },
       })
       .then((engine) => {
+        clearInterval(intervalId);
         setEngine(engine);
-        const popup = document.createElement("div");
-        popup.textContent = "you are good to use the model!";
-        popup.style.position = "fixed";
-        popup.style.top = "20px";
-        popup.style.right = "20px";
-        popup.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
-        popup.style.color = "white";
-        popup.style.padding = "10px 20px";
-        popup.style.borderRadius = "8px";
-        popup.style.zIndex = "1000";
-        document.body.appendChild(popup);
+
+        popup.textContent = "You are good to use the model!";
         setTimeout(() => {
           document.body.removeChild(popup);
         }, 2000);
       });
   }, []);
 
-  const [isProcessing,setIsProcessing]=useState(false);
+  const [isProcessing, setIsProcessing] = useState(false);
 
   const sendPromptToLLm = async () => {
     setIsProcessing(true);
