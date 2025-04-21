@@ -1,33 +1,46 @@
-# 🧠 CodeMate-Qwen
+# 💬 gemmawebllm
 
-> An in-browser code assistant powered by the 0.5B Qwen2.5 Coder MLC model using WebLLM and WebGPU.
+A lightweight, private, in-browser AI chat application powered by the **Gemma-2B-IT** model using MLC and WebLLM.  
+Runs fully in-browser with **WebGPU** — no API keys, no servers, no data sent anywhere. 🛡️
+
+---
 
 ## 🚀 Features
 
-- ⚡ Lightweight 0.5B model — fast to load, even on low-end devices
-- 🧩 Built with [@mlc-ai/web-llm](https://github.com/mlc-ai/web-llm)
-- 🖥️ Runs completely in-browser (no server/API needed)
-- 🔐 Privacy-first: all computation happens locally
+- 🤖 Uses [Gemma-2B-IT](https://huggingface.co/mlc-ai/gemma-2b-it-q4f16_1-MLC) instruction-tuned MLC model
+- 🌐 100% client-side execution with [WebLLM](https://github.com/mlc-ai/web-llm)
+- 🔐 Privacy-first: no backend, no API calls
+- ⚛️ Built using React + Vite
+- ⚡ Fast and responsive experience with WebGPU
+
+---
+
+## 🧠 Model Details
+
+| Attribute        | Value                                                |
+|------------------|------------------------------------------------------|
+| Model Name       | `gemma-2b-it-q4f16_1-MLC`                             |
+| Source           | [Hugging Face](https://huggingface.co/mlc-ai/gemma-2b-it-q4f16_1-MLC) |
+| Architecture     | Gemma 2B (Instruction-Tuned)                         |
+| Format           | MLC                                                  |
+| Quantization     | q4f16_1                                              |
+
+---
 
 ## 🧱 Tech Stack
 
 - React
 - Vite
 - WebLLM
-- WebGPU (Chrome 113+)
+- WebGPU
 
-## 🧠 Model Used
+---
 
-**Model ID:** [`Qwen2.5-Coder-0.5B-Instruct-q4f32_1-MLC`](https://huggingface.co/mlc-ai/Qwen2.5-Coder-0.5B-Instruct-q4f32_1-MLC)  
-**Provider:** `mlc-ai` on Hugging Face  
-**Quantization:** q4f32_1  
-**Architecture:** 0.5B Qwen2.5 (optimized for code)
-
-## 📦 Setup
+## 📦 Getting Started
 
 ```bash
-git clone https://github.com/Saketh-Reddy-Bejadi/Qwencode-webapp.git
-cd qwen-lite-coder-webapp
+git clone https://github.com/Saketh-Reddy-Bejadi/gemma_web_llm.git
+cd gemmawebllm
 npm install
 npm run dev
 ```
